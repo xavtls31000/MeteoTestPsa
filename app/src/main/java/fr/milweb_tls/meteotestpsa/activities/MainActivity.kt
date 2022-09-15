@@ -1,24 +1,22 @@
+@file:Suppress("DEPRECATION")
+
 package fr.milweb_tls.meteotestpsa.activities
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
-import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.bottomnavigation.BottomNavigationView.OnNavigationItemSelectedListener
 import fr.milweb_tls.meteotestpsa.R
 import fr.milweb_tls.meteotestpsa.base.BaseActivity
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
-import fr.milweb_tls.meteotestpsa.util.StaticMethode
 
 /**
  * Created by xavier Mangiapanelli on 15/09/2022.
  */
+@Suppress("DEPRECATION")
 class MainActivity : BaseActivity(),
     AdapterView.OnItemSelectedListener
 
@@ -33,7 +31,7 @@ class MainActivity : BaseActivity(),
 
     // Configure menu du bas
     private fun configureDownMenu(){
-        val navListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        val navListener = OnNavigationItemSelectedListener { item ->
 
             when (item.itemId) {
 

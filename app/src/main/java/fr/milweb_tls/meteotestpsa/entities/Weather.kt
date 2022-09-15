@@ -1,7 +1,6 @@
 package fr.milweb_tls.meteotestpsa.entities
 
 import androidx.room.Entity
-import androidx.room.Index
 import androidx.room.PrimaryKey
 
 /**
