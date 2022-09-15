@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MeteoTestPsa</string>
+
+    <!-- MAIN ACTIVITY -->
+    <string name="error_not_connected">Vous devez vous connecter !</string>
+    <string name="logout">Vous êtes déconnecter !</string>
+    <string name="error_no_internet">Aucune connexion internet !</string>
+    <string name="error_unknown_error">Une erreur inconnue s\'est produite&#8230;</string>
+
+
 </resources>
