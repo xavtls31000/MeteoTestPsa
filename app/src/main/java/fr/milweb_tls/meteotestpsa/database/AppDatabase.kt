@@ -12,6 +12,9 @@ import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.DATABASE_NAME
 import fr.milweb_tls.meteotestpsa.util.ConverterRoom
 import kotlinx.coroutines.CoroutineScope
 
+/**
+ * Created by xavier Mangiapanelli on 15/09/2022.
+ */
 @Database(
     entities = [Current::class, DataMeteo::class,
                 Hourly::class, Villes::class, Weather::class],

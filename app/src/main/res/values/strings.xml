@@ -6,6 +6,10 @@
     <string name="logout">Vous êtes déconnecter !</string>
     <string name="error_no_internet">Aucune connexion internet !</string>
     <string name="error_unknown_error">Une erreur inconnue s\'est produite&#8230;</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="valider">Valider</string>
+    <string name="annuler">Annuler</string>
 
 
 </resources>

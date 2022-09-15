@@ -10,6 +10,9 @@ import fr.milweb_tls.meteotestpsa.database.AppDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
+/**
+ * Created by xavier Mangiapanelli on 15/09/2022.
+ */
 abstract class BaseActivity: AppCompatActivity() {
     abstract class BaseActivity : AppCompatActivity() {
 
