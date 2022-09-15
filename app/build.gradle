@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "fr.milweb_tls.meteotestpsa"
-        minSdk 24
+        minSdk 23
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -71,11 +71,7 @@ dependencies {
     kapt "androidx.room:room-compiler:2.4.3"
     androidTestImplementation "androidx.room:room-testing:2.4.3"
 
-    // Lifecycle components
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.5.1"
-
+    
 
 
 }
