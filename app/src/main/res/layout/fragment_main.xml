@@ -13,7 +13,15 @@
         android:background="@drawable/logo_meteo_test_psa"
         android:layout_gravity="center"/>
 
-    <include layout="@layout/fragment_input_ville"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
+
+        <include layout="@layout/fragment_input_ville"/>
+
+    </LinearLayout>
+
 
 
 

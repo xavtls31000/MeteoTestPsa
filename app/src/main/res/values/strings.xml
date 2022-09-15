@@ -10,6 +10,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="valider">Valider</string>
     <string name="annuler">Annuler</string>
+    <string name="accueil">accueil</string>
+    <string name="villes">villes</string>
+    <string name="saisie">saisie</string>
+    <string name="meteo">meteo</string>
+    <string name="input_ville">Saisir Une Ville</string>
 
 
 </resources>
