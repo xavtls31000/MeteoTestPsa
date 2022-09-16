@@ -2,6 +2,7 @@ package fr.milweb_tls.meteotestpsa.dao
 
 import androidx.room.*
 import fr.milweb_tls.meteotestpsa.entities.City
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CityDao {
@@ -18,6 +19,9 @@ interface CityDao {
     @Query("SELECT * FROM T_City ORDER BY codePostal")
     fun getAllCity(): List<City>
 
+    /** get all city for cityViewModel **/
+    @Query("SELECT * FROM T_City ORDER BY name")
+    fun getListCity(): Flow<List<City>>
 
 
 }

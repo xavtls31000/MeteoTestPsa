@@ -20,7 +20,7 @@ class InitCity() {
             if (i==4) listCity.add(City(4,"06000","Nice"))
             if (i==5) listCity.add(City(5,"44000","Nantes"))
             if (i==6) listCity.add(City(6,"75000","Paris"))
-            if (i==7) listCity.add(City(7,"67000","Starsbourg"))
+            if (i==7) listCity.add(City(7,"67000","Strasbourg"))
             if (i==8) listCity.add(City(8,"59000","Lille"))
             if (i==9) listCity.add(City(9,"13000","Marseille"))
             if (i==10) listCity.add(City(10,"83000","Toulon"))

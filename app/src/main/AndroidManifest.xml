@@ -4,6 +4,7 @@
     package="fr.milweb_tls.meteotestpsa">
 
     <application
+        android:name="fr.milweb_tls.meteotestpsa.MeteoTestPsaApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
