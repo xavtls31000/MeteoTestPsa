@@ -5,8 +5,8 @@ import androidx.fragment.app.FragmentManager
 
 class JsonDataMeteoApi (var context: Context, var fragmentManager: FragmentManager){
 
-
-    fun getProductJson(city: String) {
+    /** Call API OpenWheather **/
+    fun getCurrentDataMeteoJson(city: String) {
         TransfertFile(context, fragmentManager).getCurrentData(city)
 
 

@@ -34,7 +34,7 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        /** Inflate the layout for this fragment **/
         val rootView = inflater.inflate(R.layout.fragment_main, container, false)
         val btnValidate = rootView.findViewById<Button>(R.id.input_ville_btn_validate)
         cityEditText = rootView.findViewById(R.id.input_city_city)
@@ -42,14 +42,18 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         configureSpinner(rootView)
 
-        // btn validate input city
+        /** btn validate input city **/
         btnValidate.setOnClickListener {
             Log.d(LOG_TAG,"ville: " + cityEditText!!.text.toString())
             if(cityEditText!=null && cityEditText!!.text.toString() != "") {
                 val cityName = cityEditText!!.text.toString()
                 val codePostal = codePostalEditText!!.text.toString()
+
+                /** save city object in BDD **/
                 BaseActivity.databaseRoom.cityDao().insertCity(City(0L,codePostal,cityName))
-                JsonDataMeteoApi(requireContext(), requireActivity().supportFragmentManager).getProductJson(cityName)
+
+                /** call API OpenWeather **/
+                JsonDataMeteoApi(requireContext(), requireActivity().supportFragmentManager).getCurrentDataMeteoJson(cityName)
 
             } else Toast.makeText(context, MSG_ERROR_INPUT_CITY, Toast.LENGTH_SHORT).show()
 
@@ -58,12 +62,13 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
     }
 
     private fun configureSpinner(view: View){
-        // create list of spinner_mpVte
+
+        /** create list of spinner_mpVte **/
         val spinnerCity = view.findViewById<Spinner>(R.id.spinner_city)
         val listCity = CityRepository(BaseActivity.databaseRoom.cityDao()).getListAllCity()
         val dataAdapter = CustomSpinnerCityAdapter(requireContext(), listCity)
 
-        // chargement spinner avec list des enseignes et position sur l'enseigne séléctionnée
+        /** chargement spinner avec list des city et position sur la city séléctionnée **/
         spinnerCity.adapter = dataAdapter
         spinnerCity.onItemSelectedListener = this
 
@@ -82,9 +87,11 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         val city: City = parent?.getItemAtPosition(position) as City
-        Log.d(LOG_TAG,"city : " + city.name)
         val imageEnseigne = requireView().findViewById<ImageView>(R.id.weather_spinner)
+
+        /** show data in textWiew **/
         cityEditText!!.setText(city.name)
+        codePostalEditText!!.setText(city.codePostal)
 
     }
 

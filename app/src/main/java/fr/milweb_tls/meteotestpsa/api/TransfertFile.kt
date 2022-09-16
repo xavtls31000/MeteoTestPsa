@@ -16,6 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class TransfertFile(var context: Context, var fragmentManager: FragmentManager) {
 
+    /** Call Api OpenWeather **/
     fun getCurrentData(city: String) {
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(Constantes.BASE_URL_SERVER)
