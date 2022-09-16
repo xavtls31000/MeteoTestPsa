@@ -17,7 +17,7 @@ import kotlinx.coroutines.CoroutineScope
  */
 @Database(
     entities = [Current::class, DataMeteo::class,
-                Hourly::class, Villes::class, Weather::class],
+                Hourly::class, City::class, Weather::class],
     version = 1,exportSchema = false)
 
 @TypeConverters(ConverterRoom::class)

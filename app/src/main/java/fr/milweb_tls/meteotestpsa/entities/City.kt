@@ -12,7 +12,7 @@ import androidx.room.PrimaryKey
     tableName = "T_Ville",
     //indices = [Index(value = ["codePostal"], unique = true)],
 )
-data class Villes (
+data class City (
 
     @PrimaryKey(autoGenerate = true)
     var id: Int,

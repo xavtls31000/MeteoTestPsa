@@ -1,18 +1,21 @@
 package fr.milweb_tls.meteotestpsa.interfaces
 
 import androidx.annotation.WorkerThread
-import fr.milweb_tls.meteotestpsa.entities.DataMeteo
+import fr.milweb_tls.meteotestpsa.entities.CurrentWeather
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.Query
 import retrofit2.http.Streaming
 
 interface MeteoTestPsaServices {
 
 
-    @GET("")
+    @GET("data/2.5/weather?")
     @Streaming
     @WorkerThread
-    fun getDataMeteoForCodePostal(@Path("codePostal") dataMeteo: String): Call<DataMeteo>
+    fun getDataMeteoForCity(@Query("q") city: String?,
+                            @Query("APPID") app_id: String?): Call<CurrentWeather>
+
+
 
 }

@@ -8,13 +8,21 @@ import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.google.gson.GsonBuilder
-import fr.milweb_tls.meteotestpsa.base.BaseActivity
-import fr.milweb_tls.meteotestpsa.entities.DataMeteo
+import fr.milweb_tls.meteotestpsa.entities.CurrentWeather
 import fr.milweb_tls.meteotestpsa.entities.ResponseData
+import fr.milweb_tls.meteotestpsa.entities.City
+import fr.milweb_tls.meteotestpsa.interfaces.Constantes
+import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.KEY_API
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.SERVER_ADDRESS
+import fr.milweb_tls.meteotestpsa.interfaces.MeteoTestPsaServices
 import fr.milweb_tls.meteotestpsa.interfaces.OnResponseTransfert
 import fr.milweb_tls.meteotestpsa.singleton.VolleySingleton
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.text.SimpleDateFormat
 
 class TransfertFile(var context: Context, var fragmentManager: FragmentManager) {
@@ -35,20 +43,7 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
 
                 val fileJson = gson.fromJson(response,ResponseData::class.java)
                 //dataMeteo = fileJson.toMutableList()
-                Log.d(LOG_TAG, "fileJson: " + fileJson)
-//                try {
-//
-//                    //Log.d(LOG_TAG, "list prix: " + listProductPrice);
-//                    ProductPriceRepository(BaseActivity.BaseActivity.databaseRoom.productPriceDao()).insertListProductPrice(listProductPrice)
-//                    val msg = ""
-//
-//                    onResponseTransfert = MainFragment()
-//                    MainFragment().sendResponse(fragmentManager,  "" ,0)
-//                } catch (e: Exception) {
-//                    Log.d(LOG_TAG, "error : $e")
-//
-//                    MainFragment().sendResponse(fragmentManager,"",0)
-//                }
+                Log.d(LOG_TAG, "response: " + response)
             }
         ) {
 
@@ -60,6 +55,34 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
             DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
         )
         VolleySingleton.getInstance(context)!!.addToRequestQue(stringRequest)
+    }
+
+    fun getCurrentData(city: String) {
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl(Constantes.BASE_URL_SERVER)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service: MeteoTestPsaServices = retrofit.create(MeteoTestPsaServices::class.java)
+        var call: Call<CurrentWeather> = service.getDataMeteoForCity(city, KEY_API)
+
+        call.enqueue(object : Callback<CurrentWeather> {
+            override fun onResponse(call: Call<CurrentWeather>, response: Response<CurrentWeather>) {
+
+                if (response.code() == 200) {
+
+                    val weatherResponse: CurrentWeather = response.body()!!
+                    Log.d(LOG_TAG, "weatherResponse: " + weatherResponse.weather[0])
+
+
+                } else {
+                    Log.d(LOG_TAG, "error response: " + response.raw())
+                }
+            }
+
+            override fun onFailure(call: Call<CurrentWeather>, t: Throwable) {
+                Log.d(LOG_TAG, "error response: " + t)
+            }
+        })
     }
 
 
