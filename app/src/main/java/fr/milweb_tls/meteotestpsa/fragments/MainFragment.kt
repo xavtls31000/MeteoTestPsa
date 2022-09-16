@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.EditText
 import fr.milweb_tls.meteotestpsa.R
 import fr.milweb_tls.meteotestpsa.api.JsonDataMeteoApi
+import fr.milweb_tls.meteotestpsa.base.BaseActivity
+import fr.milweb_tls.meteotestpsa.entities.City
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
 import fr.milweb_tls.meteotestpsa.webServices.MeteoTestPsaApi
 
@@ -31,10 +33,11 @@ class MainFragment : Fragment() {
         // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_main, container, false)
         val btnValidate = rootView.findViewById<Button>(R.id.input_ville_btn_validate)
-        val ville = rootView.findViewById<EditText>(R.id.input_ville_ville)
+        val city = rootView.findViewById<EditText>(R.id.input_city_city)
         btnValidate.setOnClickListener {
-            Log.d(LOG_TAG,"ville: " + ville.text)
-            JsonDataMeteoApi(requireContext(), requireActivity().supportFragmentManager).getProductJson(ville.text.toString())
+            Log.d(LOG_TAG,"ville: " + city.text)
+            BaseActivity.databaseRoom.cityDao().insertCity(City(0,"",city.text.toString()))
+            JsonDataMeteoApi(requireContext(), requireActivity().supportFragmentManager).getProductJson(city.text.toString())
             //MeteoTestPsaApi(requireContext().resources).getCurrentData()
         }
         return rootView

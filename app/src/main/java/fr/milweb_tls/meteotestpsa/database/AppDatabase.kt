@@ -24,7 +24,7 @@ import kotlinx.coroutines.CoroutineScope
 abstract class AppDatabase : RoomDatabase(){
 
     // --- DAO ---
-    abstract fun villeDao(): CityDao
+    abstract fun cityDao(): CityDao
     abstract fun dataMeteoDao(): DataMeteoDao
 
     companion object{

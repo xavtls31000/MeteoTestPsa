@@ -48,7 +48,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/input_ville_ville"
+        android:id="@+id/input_city_city"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginEnd="10dp"

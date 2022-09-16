@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
  */
 
 @Entity(
-    tableName = "T_Ville",
+    tableName = "T_City",
     //indices = [Index(value = ["codePostal"], unique = true)],
 )
 data class City (
@@ -23,6 +23,6 @@ data class City (
 
 {
     override fun toString(): String {
-        return "Villes(id=$id, codePosta='$codePostal', name='$name')"
+        return "City(id=$id, codePostal='$codePostal', name='$name')"
     }
 }

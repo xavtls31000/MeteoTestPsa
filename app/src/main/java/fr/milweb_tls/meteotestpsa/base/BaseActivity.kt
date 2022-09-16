@@ -11,9 +11,6 @@ import kotlinx.coroutines.SupervisorJob
  * Created by xavier Mangiapanelli on 15/09/2022.
  */
 abstract class BaseActivity: AppCompatActivity() {
-    abstract class BaseActivity : AppCompatActivity() {
-
-        abstract val fragmentLayout: Int
 
         private lateinit var receiver: BroadcastReceiver
 
@@ -21,8 +18,7 @@ abstract class BaseActivity: AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
 
-            this.setContentView(this.fragmentLayout)
-            val applicationScope = CoroutineScope(SupervisorJob())
+             val applicationScope = CoroutineScope(SupervisorJob())
 
             databaseRoom = AppDatabase.getDatabase(this, applicationScope)
 
@@ -38,7 +34,5 @@ abstract class BaseActivity: AppCompatActivity() {
             lateinit var databaseRoom: AppDatabase
 
         }
-
-    }
 
 }
