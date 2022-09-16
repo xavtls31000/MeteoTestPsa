@@ -55,14 +55,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
     implementation 'androidx.cardview:cardview:1.0.0'
 
-    // Volley
-    implementation 'com.google.code.gson:gson:2.8.9'
-    implementation 'com.mcxiaoke.volley:library:1.0.19'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.gms:play-services-maps:18.1.0'
-
     // lombok
-    compileOnly "org.projectlombok:lombok:1.18.24"
+    //compileOnly "org.projectlombok:lombok:1.18.24"
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
     // ROOM
@@ -72,6 +66,8 @@ dependencies {
     androidTestImplementation "androidx.room:room-testing:2.4.3"
 
     //Retrofit
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
     implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"

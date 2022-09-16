@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import fr.milweb_tls.meteotestpsa.dao.DataMeteoDao
-import fr.milweb_tls.meteotestpsa.dao.VilleDao
+import fr.milweb_tls.meteotestpsa.dao.CityDao
 import fr.milweb_tls.meteotestpsa.entities.*
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.DATABASE_NAME
 import fr.milweb_tls.meteotestpsa.util.ConverterRoom
@@ -24,7 +24,7 @@ import kotlinx.coroutines.CoroutineScope
 abstract class AppDatabase : RoomDatabase(){
 
     // --- DAO ---
-    abstract fun villeDao(): VilleDao
+    abstract fun villeDao(): CityDao
     abstract fun dataMeteoDao(): DataMeteoDao
 
     companion object{
