@@ -44,7 +44,7 @@ class CurrentWeather () {
 
     class Weather {
         @SerializedName("id")
-        var id = 0
+        var id = 0L
 
         @SerializedName("main")
         var main: String? = null

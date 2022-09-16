@@ -1,6 +1,7 @@
 package fr.milweb_tls.meteotestpsa.entities
 
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
 
@@ -10,12 +11,12 @@ import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "T_City",
-    //indices = [Index(value = ["codePostal"], unique = true)],
+    indices = [Index(value = ["name"], unique = true)],
 )
 data class City (
 
     @PrimaryKey(autoGenerate = true)
-    var id: Int,
+    var id: Long,
     var codePostal: String = "",
     var name: String = ""
 

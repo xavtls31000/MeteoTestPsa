@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DataExportManager">
@@ -28,18 +28,18 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="fe731cb5-75a7-438c-907a-992cdb8e153f">
-      <console name="TestPsa" type="STANDARD" schema="main" session="Main" />
+    <connection id="8a7a2ca5-a9ef-4385-8000-4a37524186b4">
+      <console name="testPsa" type="STANDARD" schema="main" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="fe731cb5-75a7-438c-907a-992cdb8e153f" />
+    <connection id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="fe731cb5-75a7-438c-907a-992cdb8e153f" dataset="main.T_City" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" dataset="main.T_City" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -70,10 +70,10 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="fe731cb5-75a7-438c-907a-992cdb8e153f" active="true" signed="true">
+      <connection id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" active="true" signed="true">
         <database>
-          <name value="TestPsa" />
-          <description value="" />
+          <name value="testPsa" />
+          <description value="testPsa" />
           <database-type value="SQLITE" />
           <config-type value="BASIC" />
           <database-version value="3.39" />

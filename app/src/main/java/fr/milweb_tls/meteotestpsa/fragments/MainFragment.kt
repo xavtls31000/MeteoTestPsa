@@ -36,7 +36,7 @@ class MainFragment : Fragment() {
         val city = rootView.findViewById<EditText>(R.id.input_city_city)
         btnValidate.setOnClickListener {
             Log.d(LOG_TAG,"ville: " + city.text)
-            BaseActivity.databaseRoom.cityDao().insertCity(City(0,"",city.text.toString()))
+            BaseActivity.databaseRoom.cityDao().insertCity(City(0L,"",city.text.toString()))
             JsonDataMeteoApi(requireContext(), requireActivity().supportFragmentManager).getProductJson(city.text.toString())
             //MeteoTestPsaApi(requireContext().resources).getCurrentData()
         }
