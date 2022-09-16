@@ -9,9 +9,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.BottomNavigationView.OnNavigationItemSelectedListener
 import fr.milweb_tls.meteotestpsa.R
 import fr.milweb_tls.meteotestpsa.base.BaseActivity
+import fr.milweb_tls.meteotestpsa.fragments.ListCityFragment
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
 import fr.milweb_tls.meteotestpsa.reposytory.CityRepository
 import fr.milweb_tls.meteotestpsa.util.InitCity
+import fr.milweb_tls.meteotestpsa.util.StaticMethode
 
 /**
  * Created by xavier Mangiapanelli on 15/09/2022.
@@ -50,6 +52,7 @@ class MainActivity : BaseActivity()
 
                 R.id.navigation_list_ville -> {
                     Log.d(LOG_TAG, "navigation_list_ville")
+                    StaticMethode.startTransactionFragment(this.supportFragmentManager, ListCityFragment(), null)
                 }
 
                 R.id.navigation_meteo -> {
