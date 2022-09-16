@@ -5,20 +5,19 @@ package fr.milweb_tls.meteotestpsa.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.AdapterView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.BottomNavigationView.OnNavigationItemSelectedListener
 import fr.milweb_tls.meteotestpsa.R
 import fr.milweb_tls.meteotestpsa.base.BaseActivity
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
+import fr.milweb_tls.meteotestpsa.reposytory.CityRepository
+import fr.milweb_tls.meteotestpsa.util.InitCity
 
 /**
  * Created by xavier Mangiapanelli on 15/09/2022.
  */
 @Suppress("DEPRECATION")
-class MainActivity : BaseActivity(),
-    AdapterView.OnItemSelectedListener
+class MainActivity : BaseActivity()
 
 {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +25,11 @@ class MainActivity : BaseActivity(),
         setContentView(R.layout.activity_main)
 
         configureDownMenu()
+
+        if(databaseRoom.cityDao().getAllCity().isEmpty()){
+            InitCity().initListCity()
+        }
+
 
     }
 
@@ -61,11 +65,4 @@ class MainActivity : BaseActivity(),
     }
 
 
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-
-    }
-
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-
-    }
 }

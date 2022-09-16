@@ -24,11 +24,12 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/spinner_mp_cadre"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal">
         <Spinner
-            android:theme="@style/spinnerStyleInputPrice"
-            android:id="@+id/spinner_enseigne"
+            android:theme="@style/Spinner"
+            android:id="@+id/spinner_city"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -38,29 +39,59 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        tools:ignore="UselessLeaf">
+        android:orientation="horizontal">
+
+        <!-- ville -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:text="@string/villes"/>
+            <EditText
+                android:id="@+id/input_city_city"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:singleLine="true"
+                android:textColor="@color/purple_500"
+                android:background="@drawable/spinner_mp_cadre"
+                android:orientation="horizontal"/>
+        </LinearLayout>
+
+        <!-- code postal -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_marginStart="5dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="5dp"
+                android:text="@string/code_postal"/>
+            <EditText
+                android:id="@+id/input_city_cp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:textSize="18sp"
+                android:inputType="number"
+                android:maxLength="5"
+                android:textColor="@color/purple_500"
+                android:background="@drawable/spinner_mp_cadre"
+                android:orientation="horizontal"/>
+        </LinearLayout>
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/input_city_city"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"
-        android:background="@drawable/spinner_mp_cadre"
-        android:orientation="horizontal"
-        tools:ignore="Autofill,LabelFor,TextFields">
-
-    </EditText>
-
-
+    <!-- Bouton validate -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

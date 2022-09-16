@@ -9,11 +9,14 @@ interface CityDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertCity(city: City)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertListCity(listCity: MutableList<City>)
+
     @Delete()
     fun deleteCity(city: City)
 
     @Query("SELECT * FROM T_City ORDER BY codePostal")
-    fun getAllCity(): MutableList<City>
+    fun getAllCity(): List<City>
 
 
 
