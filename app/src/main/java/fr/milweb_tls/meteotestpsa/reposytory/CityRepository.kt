@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.Flow
 class CityRepository(private val cityDao: CityDao) {
 
     /** Get list all city **/
-    @Delete
     fun deleteCity(city: City) {
         return cityDao.deleteCity(city)
     }

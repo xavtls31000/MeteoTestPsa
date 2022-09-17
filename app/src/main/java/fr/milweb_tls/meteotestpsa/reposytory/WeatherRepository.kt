@@ -1,7 +1,5 @@
 package fr.milweb_tls.meteotestpsa.reposytory
 
-import androidx.room.Delete
-import androidx.room.Insert
 import fr.milweb_tls.meteotestpsa.dao.WeatherDao
 import fr.milweb_tls.meteotestpsa.entities.Weather
 

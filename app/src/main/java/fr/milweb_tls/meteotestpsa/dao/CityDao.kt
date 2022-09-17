@@ -23,5 +23,8 @@ interface CityDao {
     @Query("SELECT * FROM T_City ORDER BY name")
     fun getListCity(): Flow<List<City>>
 
+    /** get city by name **/
+    @Query("SELECT * FROM T_City WHERE name =:cityName ")
+    fun getCity(cityName: String): City
 
 }
