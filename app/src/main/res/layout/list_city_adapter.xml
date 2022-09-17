@@ -60,7 +60,7 @@
                         android:id="@+id/list_city_delete"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        tools:src="@drawable/ic_delete"
+                        android:src="@drawable/ic_delete"
                         android:layout_margin="5dp"/>
 
                 </LinearLayout>

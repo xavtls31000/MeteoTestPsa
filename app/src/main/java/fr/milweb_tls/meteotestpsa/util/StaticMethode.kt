@@ -17,12 +17,14 @@ object StaticMethode {
         activity.beginTransaction()
             .setCustomAnimations(
                 R.anim.rigth_to_left,  // enter
-                R.anim.left_to_right // exit
+                androidx.appcompat.R.anim.abc_fade_out // exit
             )
             .replace(R.id.activity_main_frame_layout, fragment)
             .addToBackStack(null)
             .commit()
     }
+
+
 
     fun runEnterAnimation(view: View) {
         view.translationY = 50f

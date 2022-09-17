@@ -2,6 +2,8 @@
 
 package fr.milweb_tls.meteotestpsa.activities
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -35,6 +37,12 @@ class MainActivity : BaseActivity()
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        context = this
+        activity = this
+    }
+
     // Configure menu du bas
     private fun configureDownMenu(){
         val navListener = OnNavigationItemSelectedListener { item ->
@@ -51,7 +59,7 @@ class MainActivity : BaseActivity()
                 }
 
                 R.id.navigation_list_ville -> {
-                    Log.d(LOG_TAG, "navigation_list_ville")
+
                     StaticMethode.startTransactionFragment(this.supportFragmentManager, ListCityFragment(), null)
                 }
 
@@ -65,6 +73,13 @@ class MainActivity : BaseActivity()
         val bottomNav = findViewById<BottomNavigationView>(R.id.nav_view)
         bottomNav.setOnNavigationItemSelectedListener(navListener)
 
+    }
+
+    companion object{
+        @SuppressLint("StaticFieldLeak")
+        lateinit var context: Context
+        @SuppressLint("StaticFieldLeak")
+        lateinit var activity: MainActivity
     }
 
 

@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import fr.milweb_tls.meteotestpsa.R
-import fr.milweb_tls.meteotestpsa.recyclerview.CityAdapter
+import fr.milweb_tls.meteotestpsa.base.BaseActivity
+import fr.milweb_tls.meteotestpsa.recyclerview.ListCityAdapter
+import fr.milweb_tls.meteotestpsa.reposytory.CityRepository
 
 
 /**
@@ -16,7 +18,7 @@ import fr.milweb_tls.meteotestpsa.recyclerview.CityAdapter
  */
 class ListCityFragment : Fragment() {
 
-    private var cityAdapter: CityAdapter? = null
+    private var listCityAdapter: ListCityAdapter? = null
     var recyclerView: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,8 +41,10 @@ class ListCityFragment : Fragment() {
     }
 
     private fun configureRecyclerView() {
-        cityAdapter = CityAdapter(requireActivity().supportFragmentManager)
-        recyclerView!!.adapter = cityAdapter
+        //val listCity = CityRepository(BaseActivity.databaseRoom.cityDao()).getListAllCity()
+        //listCityAdapter = ListCityAdapter(requireActivity().supportFragmentManager, listCity as MutableList)
+        listCityAdapter = ListCityAdapter(requireActivity().supportFragmentManager)
+        recyclerView!!.adapter = listCityAdapter
         recyclerView!!.layoutManager = LinearLayoutManager(activity)
 
     }

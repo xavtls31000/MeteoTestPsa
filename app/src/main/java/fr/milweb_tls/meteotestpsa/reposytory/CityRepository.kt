@@ -1,10 +1,17 @@
 package fr.milweb_tls.meteotestpsa.reposytory
 
+import androidx.room.Delete
 import fr.milweb_tls.meteotestpsa.dao.CityDao
 import fr.milweb_tls.meteotestpsa.entities.City
 import kotlinx.coroutines.flow.Flow
 
 class CityRepository(private val cityDao: CityDao) {
+
+    /** Get list all city **/
+    @Delete
+    fun deleteCity(city: City) {
+        return cityDao.deleteCity(city)
+    }
 
     /** Get list all city **/
     fun getListAllCity(): List<City> {
