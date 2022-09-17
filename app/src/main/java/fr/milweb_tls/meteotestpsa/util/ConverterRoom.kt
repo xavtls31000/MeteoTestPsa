@@ -63,21 +63,4 @@ class ConverterRoom {
     }
 
 
-
-//    // Convert Houly object
-//    @TypeConverter
-//    fun toHourly(hourly: String?): Hourly? {
-//        val gson = Gson()
-//        val type = object : TypeToken<Hourly?>() {}.type
-//        return gson.fromJson(hourly, type)
-//    }
-//
-//    // Convert Weather object
-//    @TypeConverter
-//    fun toWeather(weather: String?): Weather? {
-//        val gson = Gson()
-//        val type = object : TypeToken<Weather?>() {}.type
-//        return gson.fromJson(weather, type)
-//    }
-
 }
