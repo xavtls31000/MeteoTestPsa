@@ -17,6 +17,7 @@
     <string name="input_ville">Saisir Une Ville</string>
     <string name="code_postal">Code postal</string>
     <string name="delete_city">Voulez vous supprimer la ville</string>
+    <string name="liste_des_villes">Liste des villes</string>
 
 
 </resources>
