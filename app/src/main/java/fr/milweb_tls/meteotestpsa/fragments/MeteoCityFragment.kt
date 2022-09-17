@@ -27,6 +27,8 @@ class MeteoCityFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_meteo_city, container, false)
 
 
+
+
         return rootView
     }
 

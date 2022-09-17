@@ -4,28 +4,26 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import fr.milweb_tls.meteotestpsa.dao.DataMeteoDao
 import fr.milweb_tls.meteotestpsa.dao.CityDao
+import fr.milweb_tls.meteotestpsa.dao.WeatherDao
 import fr.milweb_tls.meteotestpsa.entities.*
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.DATABASE_NAME
-import fr.milweb_tls.meteotestpsa.util.ConverterRoom
 import kotlinx.coroutines.CoroutineScope
 
 /**
  * Created by xavier Mangiapanelli on 15/09/2022.
  */
 @Database(
-    entities = [Current::class, DataMeteo::class,
-                Hourly::class, City::class, Weather::class],
+    entities = [DataMeteo::class, City::class, Weather::class],
     version = 1,exportSchema = false)
 
-@TypeConverters(ConverterRoom::class)
 abstract class AppDatabase : RoomDatabase(){
 
     // --- DAO ---
     abstract fun cityDao(): CityDao
     abstract fun dataMeteoDao(): DataMeteoDao
+    abstract fun weatherDao(): WeatherDao
 
     companion object{
 

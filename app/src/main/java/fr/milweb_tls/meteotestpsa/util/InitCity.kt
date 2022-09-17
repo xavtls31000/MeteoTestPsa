@@ -24,7 +24,7 @@ class InitCity() {
             if (i==8) listCity.add(City(8,"59000","Lille"))
             if (i==9) listCity.add(City(9,"13000","Marseille"))
             if (i==10) listCity.add(City(10,"83000","Toulon"))
-            Log.d(LOG_TAG,"list: " + listCity)
+            //Log.d(LOG_TAG,"list: " + listCity)
             i++
         }
         while (i < 11)

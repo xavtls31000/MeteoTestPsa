@@ -2,6 +2,8 @@ package fr.milweb_tls.meteotestpsa.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import fr.milweb_tls.meteotestpsa.util.ConverterRoom
 import java.io.Serializable
 
 /**
@@ -12,6 +14,8 @@ import java.io.Serializable
     tableName = "T_Current",
     //indices = [Index(value = ["codePostal"], unique = true)],
 )
+
+@TypeConverters(ConverterRoom::class)
 class Current : Serializable {
 
     @PrimaryKey(autoGenerate = true)

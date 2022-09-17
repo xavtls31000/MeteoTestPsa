@@ -1,9 +1,11 @@
 package fr.milweb_tls.meteotestpsa.api
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import androidx.fragment.app.FragmentManager
 import fr.milweb_tls.meteotestpsa.entities.CurrentWeather
+import fr.milweb_tls.meteotestpsa.entities.Weather
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.KEY_API
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
@@ -13,8 +15,14 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.text.SimpleDateFormat
+import java.util.*
 
+@SuppressLint("SimpleDateFormat")
 class TransfertFile(var context: Context, var fragmentManager: FragmentManager) {
+
+
+    val dateFormat = SimpleDateFormat("dd/MM/yyyy")
 
     /** Call Api OpenWeather **/
     fun getCurrentData(city: String) {
@@ -26,13 +34,26 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
         val call: Call<CurrentWeather> = service.getDataMeteoForCity(city, KEY_API)
 
         call.enqueue(object : Callback<CurrentWeather> {
+
             override fun onResponse(call: Call<CurrentWeather>, response: Response<CurrentWeather>) {
 
                 if (response.code() == 200) {
 
                     val weatherResponse: CurrentWeather = response.body()!!
+                    val date = dateFormat.format(Date()).toString()
+                    Log.d(LOG_TAG, "date: " + date)
+                    val weather = Weather(
+                        0,
+                        date,
+                        weatherResponse.weather[0].main.toString(),
+                        weatherResponse.weather[0].description.toString()
+                    )
+
                     Log.d(LOG_TAG, "weatherResponse: " + weatherResponse.weather[0])
-                    Log.d(LOG_TAG, "weatherMain: " + weatherResponse.main)
+                    Log.d(LOG_TAG, "weather: " + weather.toString())
+
+
+
 
 
 

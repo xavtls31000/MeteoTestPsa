@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView.OnNavig
 import fr.milweb_tls.meteotestpsa.R
 import fr.milweb_tls.meteotestpsa.base.BaseActivity
 import fr.milweb_tls.meteotestpsa.fragments.ListCityFragment
+import fr.milweb_tls.meteotestpsa.fragments.MeteoCityFragment
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
 import fr.milweb_tls.meteotestpsa.reposytory.CityRepository
 import fr.milweb_tls.meteotestpsa.util.InitCity
@@ -54,17 +55,13 @@ class MainActivity : BaseActivity()
                     startActivity(intent)
                 }
 
-                R.id.navigation_input_ville -> {
-                    Log.d(LOG_TAG, "navigation_input_ville")
-                }
-
                 R.id.navigation_list_ville -> {
 
                     StaticMethode.startTransactionFragment(this.supportFragmentManager, ListCityFragment(), null)
                 }
 
                 R.id.navigation_meteo -> {
-                    Log.d(LOG_TAG, "navigation_meteo")
+                    StaticMethode.startTransactionFragment(this.supportFragmentManager, MeteoCityFragment(), null)
                 }
             }
             true
