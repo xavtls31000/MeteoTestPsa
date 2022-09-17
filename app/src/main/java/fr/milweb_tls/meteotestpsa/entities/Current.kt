@@ -15,7 +15,7 @@ import java.io.Serializable
     //indices = [Index(value = ["codePostal"], unique = true)],
 )
 
-@TypeConverters(ConverterRoom::class)
+
 class Current : Serializable {
 
     @PrimaryKey(autoGenerate = true)

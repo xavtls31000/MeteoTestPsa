@@ -13,7 +13,7 @@ import fr.milweb_tls.meteotestpsa.util.ConverterRoom
     tableName = "T_Hourly",
     //indices = [Index(value = ["codePostal"], unique = true)],
 )
-@TypeConverters(ConverterRoom::class)
+
 data class Hourly(
     @PrimaryKey(autoGenerate = true)
     var id: Int,

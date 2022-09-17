@@ -14,7 +14,7 @@ import fr.milweb_tls.meteotestpsa.util.ConverterRoom
     tableName = "T_Weather",
     indices = [Index(value = ["date"], unique = true)],
 )
-@TypeConverters(ConverterRoom::class)
+
 data class Weather(
 
     @PrimaryKey(autoGenerate = true)
