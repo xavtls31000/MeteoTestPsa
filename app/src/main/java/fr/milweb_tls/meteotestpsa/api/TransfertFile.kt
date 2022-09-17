@@ -32,6 +32,8 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
 
                     val weatherResponse: CurrentWeather = response.body()!!
                     Log.d(LOG_TAG, "weatherResponse: " + weatherResponse.weather[0])
+                    Log.d(LOG_TAG, "weatherMain: " + weatherResponse.main)
+
 
 
                 } else {
