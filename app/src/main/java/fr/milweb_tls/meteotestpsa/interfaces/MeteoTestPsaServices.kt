@@ -1,6 +1,7 @@
 package fr.milweb_tls.meteotestpsa.interfaces
 
 import androidx.annotation.WorkerThread
+import fr.milweb_tls.meteotestpsa.entities.CurrentWeather
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

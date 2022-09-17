@@ -1,6 +1,7 @@
 package fr.milweb_tls.meteotestpsa.webServices
 
 import android.util.Log
+import fr.milweb_tls.meteotestpsa.entities.CurrentWeather
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.BASE_URL_SERVER
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.KEY_API
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
