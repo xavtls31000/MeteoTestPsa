@@ -5,9 +5,9 @@ import lombok.AllArgsConstructor
 import lombok.ToString
 
 /**
- Created by xavier Mangiapanelli on 16/09/2022.
+Created by xavier Mangiapanelli on 16/09/2022.
 
- Cette classe permet de mapper je json response de l'api OpenWeather
+Cette classe permet de mapper je json response de l'api OpenWeather
 
  */
 
