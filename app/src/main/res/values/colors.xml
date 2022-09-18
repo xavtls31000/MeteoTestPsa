@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="progress_bar">#3F51B5</color>
     <color name="btn_ville">#5F6AA8</color>
+    <color name="red_light">#FF4D4D</color>
     <color name="grey_super_light">#EFEFF1</color>
 </resources>

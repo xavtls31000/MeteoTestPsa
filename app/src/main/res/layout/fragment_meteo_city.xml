@@ -23,6 +23,17 @@
         android:background="@color/btn_ville"
         tools:text="Toulouse"/>
 
+    <TextView
+        android:id="@+id/frag_meteo_off_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/progress_bar"
+        tools:text="Vous étes hors line \n date dernière mise à jour : "/>
 
     <LinearLayout
         android:layout_width="match_parent"

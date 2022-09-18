@@ -86,6 +86,7 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     }
 
+    /** Configuring Spinner **/
     private fun configureSpinner(view: View){
 
         /** create list of spinner_mpVte **/
@@ -97,17 +98,6 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
         spinnerCity.adapter = spinnerAdapter
         spinnerCity.onItemSelectedListener = this
 
-    }
-
-
-    companion object {
-
-        var animationList = intArrayOf(
-            R.anim.layout_animation_up_to_down,
-            R.anim.layout_animation_right_to_left,
-            R.anim.layout_animation_down_to_up,
-            R.anim.layout_animation_left_to_right
-        )
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

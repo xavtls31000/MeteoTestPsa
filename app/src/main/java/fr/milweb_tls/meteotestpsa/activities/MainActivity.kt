@@ -60,9 +60,7 @@ class MainActivity : BaseActivity()
                     StaticMethode.startTransactionFragment(this.supportFragmentManager, ListCityFragment(), null)
                 }
 
-                R.id.navigation_meteo -> {
-                    StaticMethode.startTransactionFragment(this.supportFragmentManager, MeteoCityFragment(), null)
-                }
+                
             }
             true
         }

@@ -21,17 +21,20 @@ import fr.milweb_tls.meteotestpsa.util.ImgageMeteo
 class MeteoCityFragment : Fragment() {
 
     var weather: Weather? = null
+    var errorType: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         /** Get City object and Weather object passing in bundle **/
         arguments?.let {
+            errorType = it.getInt("errorType", 0)
             try {
                 weather = (it.getSerializable("weather") as Weather?)!!
             }catch (e:Exception){}
         }
         //Log.d(LOG_TAG,"city : " + city)
         //Log.d(LOG_TAG,"weather : " + weather)
+        Log.d(LOG_TAG, "errorType : $errorType")
     }
 
     @SuppressLint("UseCompatLoadingForDrawables", "SetTextI18n")
@@ -47,6 +50,7 @@ class MeteoCityFragment : Fragment() {
         val currentTemp = rootView.findViewById<TextView>(R.id.frag_meteo_value_current_temp)
         val minTemp = rootView.findViewById<TextView>(R.id.frag_meteo_value_cold_temp)
         val maxTemp = rootView.findViewById<TextView>(R.id.frag_meteo_value_hot_temp)
+        val offLine = rootView.findViewById<TextView>(R.id.frag_meteo_off_line)
 
         /** Set value **/
         if (weather!=null){
@@ -58,6 +62,10 @@ class MeteoCityFragment : Fragment() {
             minTemp.text = weather!!.minTemp.toInt().toString() + "°"
             maxTemp.text = weather!!.maxTemp.toInt().toString() + "°"
 
+            if(errorType==0){
+                offLine.visibility = View.VISIBLE
+                offLine.text = requireContext().getText(R.string.txt_off_line).toString() + " " + weather!!.date
+            } else offLine.visibility = View.GONE
         }
 
         return rootView

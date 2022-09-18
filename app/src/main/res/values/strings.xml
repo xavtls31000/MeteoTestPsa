@@ -6,7 +6,7 @@
     <string name="logout">Vous êtes déconnecter !</string>
     <string name="error_no_internet">Aucune connexion internet !</string>
     <string name="error_unknown_error">Une erreur inconnue s\'est produite&#8230;</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="valider">Valider</string>
     <string name="annuler">Annuler</string>
@@ -21,6 +21,7 @@
     <string name="mini">mini</string>
     <string name="maxi">maxi</string>
     <string name="current">current</string>
+    <string name="txt_off_line">Vous étes hors line \n date dernière mise à jour :</string>
 
 
 </resources>

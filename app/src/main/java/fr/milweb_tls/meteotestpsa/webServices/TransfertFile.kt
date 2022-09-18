@@ -14,7 +14,7 @@ import fr.milweb_tls.meteotestpsa.fragments.MeteoCityFragment
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.KEY_API
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
-import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.MSG_ERROR_INPUT_CITY
+import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.MSG_NO_CITY_WEATHER
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.MSG_OK_SAVE_WEATHER
 import fr.milweb_tls.meteotestpsa.interfaces.MeteoTestPsaServices
 import fr.milweb_tls.meteotestpsa.reposytory.WeatherRepository
@@ -27,6 +27,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.text.SimpleDateFormat
 import java.util.*
 
+@Suppress("SENSELESS_COMPARISON")
 @SuppressLint("SimpleDateFormat")
 class TransfertFile(var context: Context, var fragmentManager: FragmentManager) {
 
@@ -73,25 +74,44 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
 //                    Log.d(LOG_TAG, "weather: " + weather.toString())
                     Toast.makeText(context, MSG_OK_SAVE_WEATHER, Toast.LENGTH_SHORT).show()
 
-                    /** Call MeteoCityFragment() passing Weather object in bundle **/
-                    val bundle = Bundle()
-                    bundle.putSerializable("weather", weather)
-                    StaticMethode.startTransactionFragment(fragmentManager, MeteoCityFragment(), bundle)
-
-
-
-
-
+                    /** Call MeteoCityFragment() **/
+                    gotoFragmentMeteoCityFragment(weather,1)
 
                 } else {
                     Log.d(LOG_TAG, "error response: " + response.raw())
+                    /** get weather if off line **/
+                    getWeatherIfOffLine(city)
+
                 }
             }
 
             override fun onFailure(call: Call<CurrentWeather>, t: Throwable) {
-                Log.d(LOG_TAG, "error response: " + t)
+                Log.d(LOG_TAG, "error response onFailure: $t")
+                /** get weather if off line **/
+                getWeatherIfOffLine(city)
             }
         })
+    }
+
+    fun getWeatherIfOffLine(city:City){
+
+        /** find weather fot city selected **/
+        val weather = WeatherRepository(BaseActivity.databaseRoom.weatherDao()).getWeatherForCity(city.name)
+        Log.d(LOG_TAG, "city offLine: $weather")
+        if(weather!=null) {
+            gotoFragmentMeteoCityFragment(weather,0)
+        } else Toast.makeText(context, MSG_NO_CITY_WEATHER, Toast.LENGTH_SHORT).show()
+
+    }
+
+    fun gotoFragmentMeteoCityFragment(weather: Weather, errorType: Int){
+
+        /** Call MeteoCityFragment() passing Weather object in bundle **/
+        val bundle = Bundle()
+        bundle.putSerializable("weather", weather)
+        bundle.putInt("errorType", errorType)
+        StaticMethode.startTransactionFragment(fragmentManager, MeteoCityFragment(), bundle)
+
     }
 
 

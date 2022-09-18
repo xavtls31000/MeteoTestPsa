@@ -29,7 +29,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="b802d7a7-a8df-4ef8-a947-68e2c2fc7676">
-      <console name="TestPsa" type="STANDARD" schema="main" session="Main" />
+      <console name="TestPsa" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

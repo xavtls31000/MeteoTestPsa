@@ -11,9 +11,5 @@
         android:icon="@drawable/ic_list"
         android:title="@string/villes" />
 
-    <item
-        android:id="@+id/navigation_meteo"
-        android:icon="@drawable/ic_meteo"
-        android:title="@string/meteo" />
 
 </menu>

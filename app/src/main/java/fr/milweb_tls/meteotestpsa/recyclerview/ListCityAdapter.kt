@@ -110,6 +110,7 @@ class ListCityAdapter(var fragmentManager: FragmentManager)
                     if(cityWeather!=null) {
                         val bundle = Bundle()
                         bundle.putSerializable("weather", cityWeather)
+                        bundle.putInt("errorType", 1)
                         StaticMethode.startTransactionFragment(fragmentManager!!, MeteoCityFragment(), bundle)
                     } else Toast.makeText(context, Constantes.MSG_NO_CITY_WEATHER, Toast.LENGTH_SHORT).show()
                 }
