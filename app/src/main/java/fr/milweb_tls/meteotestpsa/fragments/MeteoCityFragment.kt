@@ -54,9 +54,9 @@ class MeteoCityFragment : Fragment() {
             mainCity.text = weather!!.city
             meteoImage.setImageDrawable(requireContext().getDrawable(image.main_image))
             meteoDescription.text = weather!!.description
-            currentTemp.text = weather!!.curentTemp.toString() + "°"
-            minTemp.text = weather!!.minTemp.toString() + "°"
-            maxTemp.text = weather!!.maxTemp.toString() + "°"
+            currentTemp.text = weather!!.curentTemp.toInt().toString() + "°"
+            minTemp.text = weather!!.minTemp.toInt().toString() + "°"
+            maxTemp.text = weather!!.maxTemp.toInt().toString() + "°"
 
         }
 

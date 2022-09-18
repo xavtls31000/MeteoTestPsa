@@ -28,25 +28,18 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="8a7a2ca5-a9ef-4385-8000-4a37524186b4">
-      <console name="testPsa" type="STANDARD" schema="main" session="Main" />
+    <connection id="b802d7a7-a8df-4ef8-a947-68e2c2fc7676">
+      <console name="TestPsa" type="STANDARD" schema="main" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" />
+    <connection id="b802d7a7-a8df-4ef8-a947-68e2c2fc7676" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" dataset="main.T_DataMeteo" active-filter-id="f9ad5017-000d-4c1b-ba47-d8b21a6df4f7">
-      <filter id="f9ad5017-000d-4c1b-ba47-d8b21a6df4f7" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
-        <condition column="id" operator="=" value="" active="true" />
-      </filter>
-    </filter-actions>
-    <filter-actions connection-id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" dataset="main.T_Weather" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" dataset="main.T_Hourly" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" dataset="main.T_City" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="b802d7a7-a8df-4ef8-a947-68e2c2fc7676" dataset="main.T_Weather" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -77,10 +70,10 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" active="true" signed="true">
+      <connection id="b802d7a7-a8df-4ef8-a947-68e2c2fc7676" active="true" signed="true">
         <database>
-          <name value="testPsa" />
-          <description value="testPsa" />
+          <name value="TestPsa" />
+          <description value="" />
           <database-type value="SQLITE" />
           <config-type value="BASIC" />
           <database-version value="3.39" />
