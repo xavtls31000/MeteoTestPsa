@@ -13,7 +13,7 @@ import java.io.Serializable
 
 @Entity(
     tableName = "T_Weather",
-    indices = [Index(value = ["date"], unique = true)],
+    indices = [Index(value = ["date", "city"], unique = true),],
 )
 
 data class Weather(
