@@ -10,7 +10,7 @@ import fr.milweb_tls.meteotestpsa.R
 /**
  * Created by xavier Mangiapanelli on 15/09/2022.
  */
-class InputVilleFragment : Fragment() {
+class InputCityFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
