@@ -12,10 +12,12 @@ interface Constantes {
 
         // Messages error
         const val MSG_ERROR_INPUT_CITY = "Saisie ville incorrecte"
+        const val MSG_ERROR_NOT_CONNECT = "Vous étes hors line"
 
         // Messages
         const val MSG_OK_SAVE_WEATHER = "Méteo enregistrée"
         const val MSG_NO_CITY_WEATHER = "Aucune donnée méteo pour cette ville"
+
     }
 
 

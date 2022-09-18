@@ -14,6 +14,7 @@ import fr.milweb_tls.meteotestpsa.fragments.MeteoCityFragment
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.KEY_API
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
+import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.MSG_ERROR_NOT_CONNECT
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.MSG_NO_CITY_WEATHER
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.MSG_OK_SAVE_WEATHER
 import fr.milweb_tls.meteotestpsa.interfaces.MeteoTestPsaServices
@@ -86,7 +87,7 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
             }
 
             override fun onFailure(call: Call<CurrentWeather>, t: Throwable) {
-                Log.d(LOG_TAG, "error response onFailure: $t")
+                //Log.d(LOG_TAG, "error response onFailure: $t")
                 /** get weather if off line **/
                 getWeatherIfOffLine(city)
             }
@@ -97,10 +98,10 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
 
         /** find weather fot city selected **/
         val weather = WeatherRepository(BaseActivity.databaseRoom.weatherDao()).getWeatherForCity(city.name)
-        Log.d(LOG_TAG, "city offLine: $weather")
+        //Log.d(LOG_TAG, "city offLine: $weather")
         if(weather!=null) {
             gotoFragmentMeteoCityFragment(weather,0)
-        } else Toast.makeText(context, MSG_NO_CITY_WEATHER, Toast.LENGTH_SHORT).show()
+        } else Toast.makeText(context, MSG_ERROR_NOT_CONNECT, Toast.LENGTH_SHORT).show()
 
     }
 

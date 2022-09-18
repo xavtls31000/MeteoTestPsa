@@ -16,7 +16,7 @@ interface CityDao {
     @Delete()
     fun deleteCity(city: City)
 
-    @Query("SELECT * FROM T_City ORDER BY codePostal")
+    @Query("SELECT * FROM T_City ORDER BY name")
     fun getAllCity(): List<City>
 
     /** get all city for cityViewModel **/

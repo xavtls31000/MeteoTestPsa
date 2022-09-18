@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,14 +17,17 @@ import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import fr.milweb_tls.meteotestpsa.R
 import fr.milweb_tls.meteotestpsa.activities.MainActivity
+import fr.milweb_tls.meteotestpsa.api.JsonDataMeteoApi
 import fr.milweb_tls.meteotestpsa.base.BaseActivity
 import fr.milweb_tls.meteotestpsa.entities.City
 import fr.milweb_tls.meteotestpsa.entities.Weather
 import fr.milweb_tls.meteotestpsa.fragments.MeteoCityFragment
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes
+import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
 import fr.milweb_tls.meteotestpsa.reposytory.CityRepository
 import fr.milweb_tls.meteotestpsa.reposytory.WeatherRepository
 import fr.milweb_tls.meteotestpsa.util.ImgageMeteo
+import fr.milweb_tls.meteotestpsa.util.NetworkUtils
 import fr.milweb_tls.meteotestpsa.util.StaticMethode
 
 
@@ -107,12 +111,27 @@ class ListCityAdapter(var fragmentManager: FragmentManager)
                     if(city!=null) { deleteCity(city!!) }
                 }
                 R.id.list_city_img_weather -> {
-                    if(cityWeather!=null) {
-                        val bundle = Bundle()
-                        bundle.putSerializable("weather", cityWeather)
-                        bundle.putInt("errorType", 1)
-                        StaticMethode.startTransactionFragment(fragmentManager!!, MeteoCityFragment(), bundle)
+                    var errorType = 0
+                    if(NetworkUtils().isNetworkConnected(context!!)) errorType = 1
+                    Log.d(LOG_TAG,"network : " + NetworkUtils().isNetworkConnected(context!!).toString())
+                    Log.d(LOG_TAG,"cityWeather : " + cityWeather)
+                    if(cityWeather!=null || NetworkUtils().isNetworkConnected(context!!)) {
+
+                        if(NetworkUtils().isNetworkConnected(context!!)){
+                            /** save city object in BDD **/
+                            BaseActivity.databaseRoom.cityDao().insertCity(city!!)
+
+                            /** call API OpenWeather with city in parameter **/
+                            JsonDataMeteoApi(context!!, fragmentManager!!).getCurrentDataMeteoJson(city!!)
+                        } else {
+                            val bundle = Bundle()
+                            bundle.putSerializable("weather", cityWeather)
+                            bundle.putInt("errorType", errorType)
+                            StaticMethode.startTransactionFragment(fragmentManager!!, MeteoCityFragment(), bundle)
+                        }
+
                     } else Toast.makeText(context, Constantes.MSG_NO_CITY_WEATHER, Toast.LENGTH_SHORT).show()
+
                 }
             }
         }

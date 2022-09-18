@@ -45,12 +45,12 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
         cityEditText = rootView.findViewById(R.id.input_city_city)
         codePostalEditText = rootView.findViewById(R.id.input_city_cp)
 
-        configureSpinner(rootView)
+        //configureSpinner(rootView)
         configureViewModel(rootView)
 
         /** btn validate input city **/
         btnValidate.setOnClickListener {
-            Log.d(LOG_TAG,"ville: " + cityEditText!!.text.toString())
+            //Log.d(LOG_TAG,"ville: " + cityEditText!!.text.toString())
             if(cityEditText!=null && cityEditText!!.text.toString() != "") {
                 val cityName = cityEditText!!.text.toString()
                 val codePostal = codePostalEditText!!.text.toString()
@@ -81,7 +81,6 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
             //spinnerAdapter!!.submitList(listCity.sortedByDescending { it.name })
             configureSpinner(view)
 
-
         }
 
     }
@@ -107,6 +106,7 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
         /** show data in textWiew **/
         cityEditText!!.setText(city.name)
         codePostalEditText!!.setText(city.codePostal)
+
 
     }
 
