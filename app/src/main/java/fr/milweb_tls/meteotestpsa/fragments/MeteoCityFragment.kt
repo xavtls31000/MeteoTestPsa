@@ -34,7 +34,7 @@ class MeteoCityFragment : Fragment() {
         //Log.d(LOG_TAG,"weather : " + weather)
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
+    @SuppressLint("UseCompatLoadingForDrawables", "SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,17 +42,21 @@ class MeteoCityFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_meteo_city, container, false)
         /** Get id from layout **/
         val meteoImage = rootView.findViewById<ImageView>(R.id.frag_meteo_img_main)
-        val meteoTxtMain = rootView.findViewById<TextView>(R.id.frag_meteo_txt_main)
         val meteoDescription = rootView.findViewById<TextView>(R.id.frag_meteo_description_main)
         val mainCity = rootView.findViewById<TextView>(R.id.frag_meteo_city)
+        val currentTemp = rootView.findViewById<TextView>(R.id.frag_meteo_value_current_temp)
+        val minTemp = rootView.findViewById<TextView>(R.id.frag_meteo_value_cold_temp)
+        val maxTemp = rootView.findViewById<TextView>(R.id.frag_meteo_value_hot_temp)
 
         /** Set value **/
         if (weather!=null){
             val image = ImgageMeteo().getDataMeteo(weather!!.icon)
             mainCity.text = weather!!.city
             meteoImage.setImageDrawable(requireContext().getDrawable(image.main_image))
-            meteoTxtMain.text = weather!!.main
             meteoDescription.text = weather!!.description
+            currentTemp.text = weather!!.curentTemp.toString() + "°"
+            minTemp.text = weather!!.minTemp.toString() + "°"
+            maxTemp.text = weather!!.maxTemp.toString() + "°"
 
         }
 

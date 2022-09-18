@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import fr.milweb_tls.meteotestpsa.base.BaseActivity
 import fr.milweb_tls.meteotestpsa.entities.City
@@ -13,6 +14,8 @@ import fr.milweb_tls.meteotestpsa.fragments.MeteoCityFragment
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.KEY_API
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
+import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.MSG_ERROR_INPUT_CITY
+import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.MSG_OK_SAVE_WEATHER
 import fr.milweb_tls.meteotestpsa.interfaces.MeteoTestPsaServices
 import fr.milweb_tls.meteotestpsa.reposytory.WeatherRepository
 import fr.milweb_tls.meteotestpsa.util.StaticMethode
@@ -37,7 +40,8 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service: MeteoTestPsaServices = retrofit.create(MeteoTestPsaServices::class.java)
-        val call: Call<CurrentWeather> = service.getDataMeteoForCity(city.name, "metric" , KEY_API)
+        val call: Call<CurrentWeather> =
+            service.getDataMeteoForCity(city.name, "metric" , "fr", KEY_API)
 
         call.enqueue(object : Callback<CurrentWeather> {
 
@@ -64,9 +68,10 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
 
                     /** Save weather object in BDD **/
                     WeatherRepository(BaseActivity.databaseRoom.weatherDao()).insertWeather(weather)
-                    Log.d(LOG_TAG, "weatherResponse: " + weatherResponse.weather[0])
-                    Log.d(LOG_TAG, "weatherResponse: " + weatherResponse.main)
-                    Log.d(LOG_TAG, "weather: " + weather.toString())
+//                    Log.d(LOG_TAG, "weatherResponse: " + weatherResponse.weather[0])
+//                    Log.d(LOG_TAG, "weatherResponse: " + weatherResponse.main)
+//                    Log.d(LOG_TAG, "weather: " + weather.toString())
+                    Toast.makeText(context, MSG_OK_SAVE_WEATHER, Toast.LENGTH_SHORT).show()
 
                     /** Call MeteoCityFragment() passing Weather object in bundle **/
                     val bundle = Bundle()

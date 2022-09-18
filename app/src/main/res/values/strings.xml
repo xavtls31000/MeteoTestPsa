@@ -18,6 +18,9 @@
     <string name="code_postal">Code postal</string>
     <string name="delete_city">Voulez vous supprimer la ville</string>
     <string name="liste_des_villes">Liste des villes</string>
+    <string name="mini">mini</string>
+    <string name="maxi">maxi</string>
+    <string name="current">current</string>
 
 
 </resources>

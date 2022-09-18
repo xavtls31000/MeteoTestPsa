@@ -10,8 +10,11 @@ interface Constantes {
         const val KEY_API = "4c68a8d20b9e4fdef11ce6f8eda1415f"
         const val BASE_URL_SERVER = "https://api.openweathermap.org/"
 
-        // Message error
+        // Messages error
         const val MSG_ERROR_INPUT_CITY = "Saisie ville incorrecte"
+
+        // Messages
+        const val MSG_OK_SAVE_WEATHER = "Méteo enregistrée"
     }
 
 

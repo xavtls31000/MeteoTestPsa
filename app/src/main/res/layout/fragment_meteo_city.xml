@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="20dp"
         android:padding="10dp"
         android:textStyle="bold"
         android:textSize="20sp"
@@ -26,9 +27,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
+        android:layout_marginTop="20dp"
         android:orientation="vertical">
 
+        <!-- block weather       -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -41,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="5dp"
-                tools:src="@drawable/ic_meteo"
+                android:src="@drawable/ic_meteo"
                 android:layout_weight="2"/>
 
             <LinearLayout
@@ -50,30 +52,131 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/frag_meteo_txt_main"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="5dp"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:textColor="@color/purple_500"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    tools:text="main"
-                    tools:ignore="NestedWeights" />
-                <TextView
                     android:id="@+id/frag_meteo_description_main"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textColor="@color/purple_500"
+                    android:textColor="@color/progress_bar"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:text="description"/>
 
             </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- block current temperature       -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:src="@mipmap/ic_temp"/>
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/current"
+                android:textColor="@color/progress_bar"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/frag_meteo_value_current_temp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:textColor="@color/progress_bar"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="temp"/>
+
+        </LinearLayout>
+
+        <!-- block temperature mini       -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:src="@mipmap/ic_temp_cold"/>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:gravity="center"
+                android:textColor="@color/progress_bar"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/mini"/>
+
+            <TextView
+                android:id="@+id/frag_meteo_value_cold_temp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:textColor="@color/progress_bar"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="min"/>
+
+        </LinearLayout>
+
+        <!-- block temperature maxi       -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:src="@mipmap/ic_temp_hot"/>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:gravity="center"
+                android:textColor="@color/progress_bar"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/maxi"/>
+
+            <TextView
+                android:id="@+id/frag_meteo_value_hot_temp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:textColor="@color/progress_bar"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="max"
+                tools:ignore="NestedWeights" />
 
         </LinearLayout>
 

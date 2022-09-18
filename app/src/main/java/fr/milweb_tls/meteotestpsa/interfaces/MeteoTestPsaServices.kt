@@ -16,6 +16,7 @@ interface MeteoTestPsaServices {
     @WorkerThread
     fun getDataMeteoForCity(@Query("q") city: String?,
                             @Query("units") mesure: String,
+                            @Query("lang") lang: String,
                             @Query("APPID") app_id: String?): Call<CurrentWeather>
 
 
