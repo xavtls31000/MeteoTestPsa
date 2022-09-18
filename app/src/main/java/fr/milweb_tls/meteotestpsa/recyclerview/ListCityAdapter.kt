@@ -115,22 +115,30 @@ class ListCityAdapter(var fragmentManager: FragmentManager)
                     if(NetworkUtils().isNetworkConnected(context!!)) errorType = 1
                     Log.d(LOG_TAG,"network : " + NetworkUtils().isNetworkConnected(context!!).toString())
                     Log.d(LOG_TAG,"cityWeather : " + cityWeather)
+                    /** if cityWeather ou connection active **/
                     if(cityWeather!=null || NetworkUtils().isNetworkConnected(context!!)) {
 
+                        /** if connection active => save city select in BDD **/
                         if(NetworkUtils().isNetworkConnected(context!!)){
+
                             /** save city object in BDD **/
                             BaseActivity.databaseRoom.cityDao().insertCity(city!!)
-
                             /** call API OpenWeather with city in parameter **/
                             JsonDataMeteoApi(context!!, fragmentManager!!).getCurrentDataMeteoJson(city!!)
+
                         } else {
+                            /** not connexion but cityweather exist => show cityWeather in from BDD **/
                             val bundle = Bundle()
                             bundle.putSerializable("weather", cityWeather)
                             bundle.putInt("errorType", errorType)
                             StaticMethode.startTransactionFragment(fragmentManager!!, MeteoCityFragment(), bundle)
                         }
 
-                    } else Toast.makeText(context, Constantes.MSG_NO_CITY_WEATHER, Toast.LENGTH_SHORT).show()
+                    } else {
+                        if (errorType==0) {
+                            Toast.makeText(context, Constantes.MSG_ERROR_NOT_CONNECT, Toast.LENGTH_SHORT).show()
+                        } else Toast.makeText(context, Constantes.MSG_NO_CITY_WEATHER, Toast.LENGTH_SHORT).show()
+                    }
 
                 }
             }

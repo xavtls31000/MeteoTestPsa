@@ -34,7 +34,7 @@ class MeteoCityFragment : Fragment() {
         }
         //Log.d(LOG_TAG,"city : " + city)
         //Log.d(LOG_TAG,"weather : " + weather)
-        //Log.d(LOG_TAG, "errorType : $errorType")
+        Log.d(LOG_TAG, "errorType : $errorType")
     }
 
     @SuppressLint("UseCompatLoadingForDrawables", "SetTextI18n")
