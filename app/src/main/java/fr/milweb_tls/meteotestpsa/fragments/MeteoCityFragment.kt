@@ -10,7 +10,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import fr.milweb_tls.meteotestpsa.R
-import fr.milweb_tls.meteotestpsa.entities.City
 import fr.milweb_tls.meteotestpsa.entities.Weather
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
 import fr.milweb_tls.meteotestpsa.util.ImgageMeteo
@@ -32,9 +31,7 @@ class MeteoCityFragment : Fragment() {
                 weather = (it.getSerializable("weather") as Weather?)!!
             }catch (e:Exception){}
         }
-        //Log.d(LOG_TAG,"city : " + city)
-        //Log.d(LOG_TAG,"weather : " + weather)
-        Log.d(LOG_TAG, "errorType : $errorType")
+
     }
 
     @SuppressLint("UseCompatLoadingForDrawables", "SetTextI18n")

@@ -3,7 +3,6 @@ package fr.milweb_tls.meteotestpsa.webServices
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import fr.milweb_tls.meteotestpsa.base.BaseActivity
@@ -13,9 +12,7 @@ import fr.milweb_tls.meteotestpsa.entities.Weather
 import fr.milweb_tls.meteotestpsa.fragments.MeteoCityFragment
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.KEY_API
-import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.MSG_ERROR_NOT_CONNECT
-import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.MSG_NO_CITY_WEATHER
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.MSG_OK_SAVE_WEATHER
 import fr.milweb_tls.meteotestpsa.interfaces.MeteoTestPsaServices
 import fr.milweb_tls.meteotestpsa.reposytory.WeatherRepository
@@ -53,7 +50,7 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
 
                     val weatherResponse: CurrentWeather = response.body()!!
                     val date = dateFormat.format(Date()).toString()
-                    //Log.d(LOG_TAG, "date: " + date)
+
                     /** Create Weather Object from response **/
                     val weather = Weather(
                         0,
@@ -65,21 +62,16 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
                         weatherResponse.main!!.temp,
                         weatherResponse.main!!.temp_min,
                         weatherResponse.main!!.temp_max
-
                     )
 
                     /** Save weather object in BDD **/
                     WeatherRepository(BaseActivity.databaseRoom.weatherDao()).insertWeather(weather)
-//                    Log.d(LOG_TAG, "weatherResponse: " + weatherResponse.weather[0])
-//                    Log.d(LOG_TAG, "weatherResponse: " + weatherResponse.main)
-//                    Log.d(LOG_TAG, "weather: " + weather.toString())
                     Toast.makeText(context, MSG_OK_SAVE_WEATHER, Toast.LENGTH_SHORT).show()
 
                     /** Call MeteoCityFragment() **/
                     gotoFragmentMeteoCityFragment(weather,1)
 
                 } else {
-                    Log.d(LOG_TAG, "error response: " + response.raw())
                     /** get weather if off line **/
                     getWeatherIfOffLine(city)
 
@@ -87,7 +79,7 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
             }
 
             override fun onFailure(call: Call<CurrentWeather>, t: Throwable) {
-                //Log.d(LOG_TAG, "error response onFailure: $t")
+
                 /** get weather if off line **/
                 getWeatherIfOffLine(city)
             }
@@ -98,7 +90,7 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
 
         /** find weather fot city selected **/
         val weather = WeatherRepository(BaseActivity.databaseRoom.weatherDao()).getWeatherForCity(city.name)
-        //Log.d(LOG_TAG, "city offLine: $weather")
+
         if(weather!=null) {
             gotoFragmentMeteoCityFragment(weather,0)
         } else Toast.makeText(context, MSG_ERROR_NOT_CONNECT, Toast.LENGTH_SHORT).show()

@@ -8,7 +8,7 @@ import java.util.*
 
 class ConverterRoom {
 
-    // Convert Hourly object
+    // Convert toWeather object
     @TypeConverter
     fun toWeather(obj: String?): Weather? {
         val gson = Gson()

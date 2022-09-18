@@ -1,8 +1,6 @@
 package fr.milweb_tls.meteotestpsa.util
 
 import android.os.Bundle
-import android.view.View
-import android.view.animation.DecelerateInterpolator
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import fr.milweb_tls.meteotestpsa.R
@@ -23,17 +21,6 @@ object StaticMethode {
             .addToBackStack(null)
             .commit()
     }
-
-    fun runEnterAnimation(view: View) {
-        view.translationY = 50f
-        view.animate()
-            .translationY(0f)
-            .setInterpolator(DecelerateInterpolator(3f))
-            .setDuration(700)
-            .start()
-    }
-
-
 
 
 

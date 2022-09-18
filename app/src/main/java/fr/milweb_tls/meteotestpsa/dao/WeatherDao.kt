@@ -1,9 +1,7 @@
 package fr.milweb_tls.meteotestpsa.dao
 
 import androidx.room.*
-import fr.milweb_tls.meteotestpsa.entities.City
 import fr.milweb_tls.meteotestpsa.entities.Weather
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface WeatherDao {

@@ -6,15 +6,11 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomnavigation.BottomNavigationView.OnNavigationItemSelectedListener
 import fr.milweb_tls.meteotestpsa.R
 import fr.milweb_tls.meteotestpsa.base.BaseActivity
 import fr.milweb_tls.meteotestpsa.fragments.ListCityFragment
-import fr.milweb_tls.meteotestpsa.fragments.MeteoCityFragment
-import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
-import fr.milweb_tls.meteotestpsa.reposytory.CityRepository
 import fr.milweb_tls.meteotestpsa.util.InitCity
 import fr.milweb_tls.meteotestpsa.util.StaticMethode
 

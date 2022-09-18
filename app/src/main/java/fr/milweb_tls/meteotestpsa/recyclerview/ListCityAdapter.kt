@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
@@ -113,8 +112,7 @@ class ListCityAdapter(var fragmentManager: FragmentManager)
                 R.id.list_city_img_weather -> {
                     var errorType = 0
                     if(NetworkUtils().isNetworkConnected(context!!)) errorType = 1
-                    Log.d(LOG_TAG,"network : " + NetworkUtils().isNetworkConnected(context!!).toString())
-                    Log.d(LOG_TAG,"cityWeather : " + cityWeather)
+
                     /** if cityWeather ou connection active **/
                     if(cityWeather!=null || NetworkUtils().isNetworkConnected(context!!)) {
 
