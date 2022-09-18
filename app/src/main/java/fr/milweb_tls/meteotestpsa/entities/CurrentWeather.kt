@@ -3,6 +3,7 @@ package fr.milweb_tls.meteotestpsa.entities
 import com.google.gson.annotations.SerializedName
 import lombok.AllArgsConstructor
 import lombok.ToString
+import java.io.Serializable
 
 /**
 Created by xavier Mangiapanelli on 16/09/2022.
@@ -12,39 +13,39 @@ Cette classe permet de mapper je json response de l'api OpenWeather
  */
 
 @AllArgsConstructor @ToString
-class CurrentWeather () {
+class CurrentWeather (): Serializable {
 
-    @SerializedName("coord")
+    //@SerializedName("coord")
     var coord: Coord? = null
-    @SerializedName("sys")
+    //@SerializedName("sys")
     var sys: Sys? = null
-    @SerializedName("weather")
+    //@SerializedName("weather")
     var weather = ArrayList<Weather>()
-    @SerializedName("main")
+    //@SerializedName("main")
     var main: Main? = null
-    @SerializedName("wind")
+    //@SerializedName("wind")
     var wind: Wind? = null
-    @SerializedName("rain")
+    //@SerializedName("rain")
     var rain: Rain? = null
-    @SerializedName("clouds")
+    //@SerializedName("clouds")
     var clouds: Clouds? = null
-    @SerializedName("dt")
+    //@SerializedName("dt")
     var dt = 0f
-    @SerializedName("id")
+    //@SerializedName("id")
     var id = 0
-    @SerializedName("name")
+    //@SerializedName("name")
     var name: String? = null
-    @SerializedName("cod")
+    //@SerializedName("cod")
     var cod = 0f
 
-    class Weather {
-        @SerializedName("id")
+    class Weather : Serializable{
+        //@SerializedName("id")
         var id = 0L
-        @SerializedName("main")
+        //@SerializedName("main")
         var main: String? = null
-        @SerializedName("description")
+        //@SerializedName("description")
         var description: String? = null
-        @SerializedName("icon")
+        //@SerializedName("icon")
         var icon: String? = null
 
         override fun toString(): String {
@@ -53,49 +54,49 @@ class CurrentWeather () {
 
     }
 
-    class Clouds {
-        @SerializedName("all")
+    class Clouds: Serializable {
+        //@SerializedName("all")
         var all = 0f
     }
 
-    class Rain {
-        @SerializedName("3h")
+    class Rain: Serializable {
+        //@SerializedName("3h")
         var h3 = 0f
     }
 
-    class Wind {
-        @SerializedName("speed")
+    class Wind: Serializable {
+        //@SerializedName("speed")
         var speed = 0f
-        @SerializedName("deg")
+        //@SerializedName("deg")
         var deg = 0f
     }
 
-    class Main {
-        @SerializedName("temp")
+    class Main: Serializable {
+        //@SerializedName("temp")
         var temp = 0f
-        @SerializedName("humidity")
+        //@SerializedName("humidity")
         var humidity = 0f
-        @SerializedName("pressure")
+        //@SerializedName("pressure")
         var pressure = 0f
-        @SerializedName("temp_min")
+        //@SerializedName("temp_min")
         var temp_min = 0f
-        @SerializedName("temp_max")
+        //@SerializedName("temp_max")
         var temp_max = 0f
     }
 
-    class Sys {
-        @SerializedName("country")
+    class Sys: Serializable {
+        //@SerializedName("country")
         var country: String? = null
-        @SerializedName("sunrise")
+        //@SerializedName("sunrise")
         var sunrise: Long = 0
-        @SerializedName("sunset")
+        //@SerializedName("sunset")
         var sunset: Long = 0
     }
 
-    class Coord {
-        @SerializedName("lon")
+    class Coord: Serializable {
+        //@SerializedName("lon")
         var lon = 0f
-        @SerializedName("lat")
+        //@SerializedName("lat")
         var lat = 0f
     }
 }

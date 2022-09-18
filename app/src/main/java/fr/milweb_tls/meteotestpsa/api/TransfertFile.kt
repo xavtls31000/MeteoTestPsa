@@ -2,9 +2,11 @@ package fr.milweb_tls.meteotestpsa.api
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.FragmentManager
 import fr.milweb_tls.meteotestpsa.base.BaseActivity
+import fr.milweb_tls.meteotestpsa.entities.City
 import fr.milweb_tls.meteotestpsa.entities.CurrentWeather
 import fr.milweb_tls.meteotestpsa.entities.Weather
 import fr.milweb_tls.meteotestpsa.fragments.MeteoCityFragment
@@ -28,14 +30,14 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
 
     val dateFormat = SimpleDateFormat("dd/MM/yyyy")
 
-    /** Call Api OpenWeather **/
-    fun getCurrentData(city: String) {
+    /** Call Api OpenWeather for 1 city **/
+    fun getCurrentData(city: City) {
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(Constantes.BASE_URL_SERVER)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service: MeteoTestPsaServices = retrofit.create(MeteoTestPsaServices::class.java)
-        val call: Call<CurrentWeather> = service.getDataMeteoForCity(city, KEY_API)
+        val call: Call<CurrentWeather> = service.getDataMeteoForCity(city.name, KEY_API)
 
         call.enqueue(object : Callback<CurrentWeather> {
 
@@ -52,13 +54,17 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
                         weatherResponse.weather[0].main.toString(),
                         weatherResponse.weather[0].description.toString(),
                         weatherResponse.weather[0].icon.toString(),
-                        city,
+                        city.name,
                     )
+                    /** Save weather object in BDD **/
                     WeatherRepository(BaseActivity.databaseRoom.weatherDao()).insertWeather(weather)
                     Log.d(LOG_TAG, "weatherResponse: " + weatherResponse.weather[0])
                     Log.d(LOG_TAG, "weather: " + weather.toString())
-
-                    StaticMethode.startTransactionFragment(fragmentManager, MeteoCityFragment(), null)
+                    /** Call MeteoCityFragment() passing Weather object in bundle **/
+                    val bundle = Bundle()
+                    bundle.putSerializable("city", city)
+                    bundle.putSerializable("weather", weather)
+                    StaticMethode.startTransactionFragment(fragmentManager, MeteoCityFragment(), bundle)
 
 
 

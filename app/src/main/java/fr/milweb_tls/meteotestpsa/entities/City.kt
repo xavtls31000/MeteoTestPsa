@@ -3,6 +3,7 @@ package fr.milweb_tls.meteotestpsa.entities
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 
 /**
@@ -22,7 +23,7 @@ data class City (
 
     )
 
-{
+    : Serializable {
     override fun toString(): String {
         return "City(id=$id, codePostal='$codePostal', name='$name')"
     }

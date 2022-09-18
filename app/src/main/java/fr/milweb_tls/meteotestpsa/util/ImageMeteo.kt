@@ -1,16 +1,14 @@
 package fr.milweb_tls.meteotestpsa.util
 
-import android.content.Context
-import androidx.core.content.ContextCompat
 import fr.milweb_tls.meteotestpsa.R
 
-data class ImgMeteo (
+data class ImgageMeteo (
 
     var main_image : Int = 0
 
     )
 {
-    fun getDataMeteo(icon: String): ImgMeteo {
+    fun getDataMeteo(icon: String): ImgageMeteo {
         when(icon){
             "01d" -> main_image = R.mipmap.ic_01d
             "01n" -> main_image = R.mipmap.ic_01n
@@ -32,6 +30,6 @@ data class ImgMeteo (
             "50n" -> main_image = R.mipmap.ic_50n
             else -> main_image = R.drawable.ic_meteo
         }
-        return ImgMeteo(main_image)
+        return ImgageMeteo(main_image)
     }
 }

@@ -54,12 +54,13 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
             if(cityEditText!=null && cityEditText!!.text.toString() != "") {
                 val cityName = cityEditText!!.text.toString()
                 val codePostal = codePostalEditText!!.text.toString()
+                val city = City(0L,codePostal,cityName)
 
                 /** save city object in BDD **/
-                BaseActivity.databaseRoom.cityDao().insertCity(City(0L,codePostal,cityName))
+                BaseActivity.databaseRoom.cityDao().insertCity(city)
 
-                /** call API OpenWeather **/
-                JsonDataMeteoApi(requireContext(), requireActivity().supportFragmentManager).getCurrentDataMeteoJson(cityName)
+                /** call API OpenWeather with city in parameter **/
+                JsonDataMeteoApi(requireContext(), requireActivity().supportFragmentManager).getCurrentDataMeteoJson(city)
 
             } else Toast.makeText(context, MSG_ERROR_INPUT_CITY, Toast.LENGTH_SHORT).show()
 
