@@ -84,6 +84,7 @@
                 android:textSize="18sp"
                 android:inputType="number"
                 android:maxLength="5"
+                android:gravity="center"
                 android:textColor="@color/purple_500"
                 android:background="@drawable/spinner_mp_cadre"
                 android:orientation="horizontal"/>
