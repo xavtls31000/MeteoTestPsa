@@ -15,7 +15,7 @@ interface WeatherDao {
     fun deleteWeather(weather: Weather)
 
     @Query("SELECT * FROM T_Weather WHERE city =:cityName ")
-    fun getLastDateWeatherFor1City(cityName: String): Weather
+    fun getWeatherForCity(cityName: String): Weather
 
 
 

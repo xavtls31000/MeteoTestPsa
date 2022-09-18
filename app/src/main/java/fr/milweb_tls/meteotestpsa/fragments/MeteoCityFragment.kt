@@ -51,8 +51,8 @@ class MeteoCityFragment : Fragment() {
         /** Set value **/
         if (weather!=null){
             val image = ImgageMeteo().getDataMeteo(weather!!.icon)
-            mainCity.text = weather!!.city
             meteoImage.setImageDrawable(requireContext().getDrawable(image.main_image))
+            mainCity.text = weather!!.city
             meteoDescription.text = weather!!.description
             currentTemp.text = weather!!.curentTemp.toInt().toString() + "°"
             minTemp.text = weather!!.minTemp.toInt().toString() + "°"

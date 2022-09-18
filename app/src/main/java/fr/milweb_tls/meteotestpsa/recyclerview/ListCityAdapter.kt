@@ -3,11 +3,14 @@ package fr.milweb_tls.meteotestpsa.recyclerview
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +18,13 @@ import fr.milweb_tls.meteotestpsa.R
 import fr.milweb_tls.meteotestpsa.activities.MainActivity
 import fr.milweb_tls.meteotestpsa.base.BaseActivity
 import fr.milweb_tls.meteotestpsa.entities.City
+import fr.milweb_tls.meteotestpsa.entities.Weather
+import fr.milweb_tls.meteotestpsa.fragments.MeteoCityFragment
+import fr.milweb_tls.meteotestpsa.interfaces.Constantes
 import fr.milweb_tls.meteotestpsa.reposytory.CityRepository
+import fr.milweb_tls.meteotestpsa.reposytory.WeatherRepository
+import fr.milweb_tls.meteotestpsa.util.ImgageMeteo
+import fr.milweb_tls.meteotestpsa.util.StaticMethode
 
 
 /**
@@ -64,10 +73,12 @@ class ListCityAdapter(var fragmentManager: FragmentManager)
         private var cityName: TextView = itemView.findViewById(R.id.list_city_city_name)
         private var cityCodePostal: TextView = itemView.findViewById(R.id.list_city_citycp)
         private var cityDelete: ImageView = itemView.findViewById(R.id.list_city_delete)
+        private var cityWeather: Weather? = null
         var context: Context? = null
         var fragmentManager: FragmentManager? = null
         var city: City? = null
 
+        @SuppressLint("UseCompatLoadingForDrawables")
         fun bind(city: City, context: Context, fragmentManager: FragmentManager?){
 
             this.context = context
@@ -76,24 +87,31 @@ class ListCityAdapter(var fragmentManager: FragmentManager)
 
             cityName.text = city.name
             cityCodePostal.text = city.codePostal
-            cityImgWeather.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_meteo))
+            cityWeather = WeatherRepository(BaseActivity.databaseRoom.weatherDao()).getWeatherForCity(city.name)
+            if (cityWeather!=null){
+                val image = ImgageMeteo().getDataMeteo(cityWeather!!.icon)
+                cityImgWeather.setImageDrawable(context.getDrawable(image.main_image))
+            } else cityImgWeather.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_meteo))
 
             // listener
             cityDelete.setOnClickListener(this)
+            cityImgWeather.setOnClickListener(this)
 
         }
 
         override fun onClick(view: View?) {
 
             when(view!!.id) {
-
+                /** delete city in list city **/
                 R.id.list_city_delete -> {
-
-                    if(city!=null) {
-
-                        deleteCity(city!!)
-
-                    }
+                    if(city!=null) { deleteCity(city!!) }
+                }
+                R.id.list_city_img_weather -> {
+                    if(cityWeather!=null) {
+                        val bundle = Bundle()
+                        bundle.putSerializable("weather", cityWeather)
+                        StaticMethode.startTransactionFragment(fragmentManager!!, MeteoCityFragment(), bundle)
+                    } else Toast.makeText(context, Constantes.MSG_NO_CITY_WEATHER, Toast.LENGTH_SHORT).show()
                 }
             }
         }

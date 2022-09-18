@@ -15,6 +15,7 @@ interface Constantes {
 
         // Messages
         const val MSG_OK_SAVE_WEATHER = "Méteo enregistrée"
+        const val MSG_NO_CITY_WEATHER = "Aucune donnée méteo pour cette ville"
     }
 
 

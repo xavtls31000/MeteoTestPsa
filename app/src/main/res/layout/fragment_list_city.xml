@@ -16,8 +16,7 @@
         android:textColor="@color/white"
         android:text="@string/liste_des_villes"
         android:textSize="20sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcv_list_city"

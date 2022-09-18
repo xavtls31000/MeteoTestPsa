@@ -16,8 +16,8 @@ class WeatherRepository(private val weatherDao: WeatherDao) {
     }
 
     /** Get last date wheather by city **/
-    fun getLastDateWeatherFor1City(city: String): Weather {
-        return weatherDao.getLastDateWeatherFor1City(city)
+    fun getWeatherForCity(city: String): Weather {
+        return weatherDao.getWeatherForCity(city)
     }
 
 
