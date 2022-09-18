@@ -2,6 +2,7 @@ package fr.milweb_tls.meteotestpsa.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import fr.milweb_tls.meteotestpsa.R
+import fr.milweb_tls.meteotestpsa.entities.City
 import fr.milweb_tls.meteotestpsa.entities.Weather
+import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.LOG_TAG
 import fr.milweb_tls.meteotestpsa.util.ImgageMeteo
 
 /**

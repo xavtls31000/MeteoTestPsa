@@ -15,7 +15,7 @@ import kotlinx.coroutines.CoroutineScope
  * Created by xavier Mangiapanelli on 15/09/2022.
  */
 @Database(
-    entities = [Current::class,
+    entities = [
         Hourly::class, City::class, Weather::class],
     version = 1,exportSchema = false)
 abstract class AppDatabase : RoomDatabase(){

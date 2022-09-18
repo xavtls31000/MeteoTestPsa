@@ -3,25 +3,11 @@ package fr.milweb_tls.meteotestpsa.util
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import fr.milweb_tls.meteotestpsa.entities.Current
 import fr.milweb_tls.meteotestpsa.entities.Hourly
 import fr.milweb_tls.meteotestpsa.entities.Weather
 import java.util.*
 
 class ConverterRoom {
-
-    // Convert Current object
-    @TypeConverter
-    fun toCurrent(obj: String?): Current? {
-        val gson = Gson()
-        val type = object : TypeToken<Current?>() {}.type
-        return gson.fromJson(obj, type)
-    }
-    @TypeConverter
-    fun currentToString(obj: Current?): String? {
-        val gson = Gson()
-        return gson.toJson(obj)
-    }
 
     // Convert Hourly object
     @TypeConverter
