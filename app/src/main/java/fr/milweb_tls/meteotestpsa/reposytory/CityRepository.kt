@@ -1,6 +1,5 @@
 package fr.milweb_tls.meteotestpsa.reposytory
 
-import androidx.room.Delete
 import fr.milweb_tls.meteotestpsa.dao.CityDao
 import fr.milweb_tls.meteotestpsa.entities.City
 import kotlinx.coroutines.flow.Flow

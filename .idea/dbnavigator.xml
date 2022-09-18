@@ -39,6 +39,13 @@
     <connection id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" dataset="main.T_DataMeteo" active-filter-id="f9ad5017-000d-4c1b-ba47-d8b21a6df4f7">
+      <filter id="f9ad5017-000d-4c1b-ba47-d8b21a6df4f7" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" dataset="main.T_Weather" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" dataset="main.T_Hourly" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="8a7a2ca5-a9ef-4385-8000-4a37524186b4" dataset="main.T_City" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">

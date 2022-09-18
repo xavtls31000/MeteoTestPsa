@@ -24,8 +24,6 @@ object StaticMethode {
             .commit()
     }
 
-
-
     fun runEnterAnimation(view: View) {
         view.translationY = 50f
         view.animate()

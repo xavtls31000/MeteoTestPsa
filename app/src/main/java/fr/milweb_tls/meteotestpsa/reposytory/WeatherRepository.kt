@@ -12,7 +12,7 @@ class WeatherRepository(private val weatherDao: WeatherDao) {
 
     /** Insert weather **/
     fun insertWeather(weather: Weather) {
-        return weatherDao.deleteWeather(weather)
+        return weatherDao.insertWeather(weather)
     }
 
     /** Get last date wheather by city **/

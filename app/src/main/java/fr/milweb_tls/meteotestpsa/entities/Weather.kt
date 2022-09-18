@@ -24,9 +24,14 @@ data class Weather(
     var main: String = "",
     var description: String = "",
     var icon: String = "",
-    var city: String = ""
+    var city: String = "",
+    var curentTemp: Float = 0f,
+    var minTemp: Float = 0f,
+    var maxTemp: Float = 0f
 ) : Serializable {
+
     override fun toString(): String {
-        return "Weather(id=$id, date='$date', main='$main', description='$description', icon='$icon', city='$city')"
+        return "Weather(id=$id, date='$date', main='$main', description='$description', icon='$icon', city='$city', curentTemp=$curentTemp, minTemp=$minTemp, maxTemp=$maxTemp)"
     }
+
 }

@@ -21,7 +21,6 @@ import fr.milweb_tls.meteotestpsa.util.ImgageMeteo
  */
 class MeteoCityFragment : Fragment() {
 
-    var city: City? = null
     var weather: Weather? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +28,6 @@ class MeteoCityFragment : Fragment() {
         /** Get City object and Weather object passing in bundle **/
         arguments?.let {
             try {
-                city = (it.getSerializable("city") as City?)!!
                 weather = (it.getSerializable("weather") as Weather?)!!
             }catch (e:Exception){}
         }
