@@ -9,6 +9,7 @@ import fr.milweb_tls.meteotestpsa.base.BaseActivity
 import fr.milweb_tls.meteotestpsa.entities.City
 import fr.milweb_tls.meteotestpsa.entities.CurrentWeather
 import fr.milweb_tls.meteotestpsa.entities.Weather
+import fr.milweb_tls.meteotestpsa.fragments.MainFragment
 import fr.milweb_tls.meteotestpsa.fragments.MeteoCityFragment
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes
 import fr.milweb_tls.meteotestpsa.interfaces.Constantes.Companion.KEY_API
@@ -93,7 +94,10 @@ class TransfertFile(var context: Context, var fragmentManager: FragmentManager) 
 
         if(weather!=null) {
             gotoFragmentMeteoCityFragment(weather,0)
-        } else Toast.makeText(context, MSG_ERROR_NOT_CONNECT, Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, MSG_ERROR_NOT_CONNECT, Toast.LENGTH_SHORT).show()
+            StaticMethode.startTransactionFragment(fragmentManager, MainFragment(),null)
+        }
 
     }
 
