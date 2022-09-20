@@ -40,6 +40,7 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
         /** Inflate the layout for this fragment **/
         val rootView = inflater.inflate(R.layout.fragment_main, container, false)
         val btnValidate = rootView.findViewById<Button>(R.id.input_ville_btn_validate)
+        val btnClear = rootView.findViewById<Button>(R.id.input_ville_btn_clear)
         cityEditText = rootView.findViewById(R.id.input_city_city)
         codePostalEditText = rootView.findViewById(R.id.input_city_cp)
         val layoutMainFragProgressbar = rootView.findViewById<LinearLayout>(R.id.layout_main_frag_progressbar)
@@ -67,6 +68,14 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 JsonDataMeteoApi(requireContext(), requireActivity().supportFragmentManager).getCurrentDataMeteoJson(city)
 
             } else Toast.makeText(context, MSG_ERROR_INPUT_CITY, Toast.LENGTH_SHORT).show()
+
+        }
+
+        /** btn clear city **/
+        btnClear.setOnClickListener {
+
+            cityEditText!!.setText("")
+            codePostalEditText!!.setText("")
 
         }
         return rootView

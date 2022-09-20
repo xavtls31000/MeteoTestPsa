@@ -9,6 +9,7 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="valider">Valider</string>
+    <string name="clear">Effacer</string>
     <string name="annuler">Annuler</string>
     <string name="accueil">accueil</string>
     <string name="villes">villes</string>
