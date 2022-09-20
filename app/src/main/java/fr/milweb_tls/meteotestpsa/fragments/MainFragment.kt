@@ -23,8 +23,8 @@ import fr.milweb_tls.meteotestpsa.viewModel.CityViewModel
  */
 class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
-    var cityEditText: EditText? = null
-    var codePostalEditText: EditText? = null
+    private var cityEditText: EditText? = null
+    private var codePostalEditText: EditText? = null
     private var spinnerAdapter: CustomSpinnerCityAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +42,8 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val btnValidate = rootView.findViewById<Button>(R.id.input_ville_btn_validate)
         cityEditText = rootView.findViewById(R.id.input_city_city)
         codePostalEditText = rootView.findViewById(R.id.input_city_cp)
+        val layoutMainFragProgressbar = rootView.findViewById<LinearLayout>(R.id.layout_main_frag_progressbar)
+        val layoutMainFragInputCity = rootView.findViewById<LinearLayout>(R.id.layout_main_frag_input_city)
 
         //configureSpinner(rootView)
         configureViewModel(rootView)
@@ -53,6 +55,10 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 val cityName = cityEditText!!.text.toString()
                 val codePostal = codePostalEditText!!.text.toString()
                 val city = City(0L,codePostal,cityName)
+
+                /** show progressBar **/
+                layoutMainFragProgressbar.visibility = View.VISIBLE
+                layoutMainFragInputCity.visibility = View.GONE
 
                 /** save city object in BDD **/
                 BaseActivity.databaseRoom.cityDao().insertCity(city)
@@ -99,7 +105,6 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         val city: City = parent?.getItemAtPosition(position) as City
-        val imageEnseigne = requireView().findViewById<ImageView>(R.id.weather_spinner)
 
         /** show data in textWiew **/
         cityEditText!!.setText(city.name)
