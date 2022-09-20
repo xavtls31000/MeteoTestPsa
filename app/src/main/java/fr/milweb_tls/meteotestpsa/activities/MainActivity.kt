@@ -40,7 +40,7 @@ class MainActivity : BaseActivity()
         activity = this
     }
 
-    // Configure menu du bas
+    /** Configuring bottom menu **/
     private fun configureDownMenu(){
         val navListener = OnNavigationItemSelectedListener { item ->
 

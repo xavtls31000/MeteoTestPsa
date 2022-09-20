@@ -46,7 +46,6 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
         val layoutMainFragProgressbar = rootView.findViewById<LinearLayout>(R.id.layout_main_frag_progressbar)
         val layoutMainFragInputCity = rootView.findViewById<LinearLayout>(R.id.layout_main_frag_input_city)
 
-        //configureSpinner(rootView)
         configureViewModel(rootView)
 
         /** btn validate input city **/
@@ -88,9 +87,9 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
             CityModelFactory((requireActivity().application as MeteoTestPsaApplication).repositoryCity)
         }
 
-        /** observable : affichage de tous les produits des qu'un changement en BDD **/
+        /** observable : affichage de toutes les city des qu'un changement en BDD **/
         cityViewModel.allCity.observe(viewLifecycleOwner) { listCity ->
-            /** Update the cached copy of the product in the adapter. **/
+            /** Update the cached copy of the city in the adapter. **/
             //spinnerAdapter!!.submitList(listCity.sortedByDescending { it.name })
             configureSpinner(view)
 
@@ -101,7 +100,7 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
     /** Configuring Spinner **/
     private fun configureSpinner(view: View){
 
-        /** create list of spinner_mpVte **/
+        /** create list of spinner_city **/
         val spinnerCity = view.findViewById<Spinner>(R.id.spinner_city)
         val listCity = CityRepository(BaseActivity.databaseRoom.cityDao()).getListAllCity()
         spinnerAdapter = CustomSpinnerCityAdapter(requireContext(), listCity)
